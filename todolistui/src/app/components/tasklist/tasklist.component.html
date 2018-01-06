@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>
+    <mat-form-field>
+      <mat-select placeholder="Selected tasks" [(value)]="selectedStatus" (change)="statusValueChanged()">
+        <mat-option value="COMPLETED">
+          Completed
+        </mat-option>
+        <mat-option value="PENDING">
+          Pending
+        </mat-option>
+        <mat-option value="ALL">
+          All
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <app-taskitem *ngFor="let task of allTasks"
+        [task]="task"
+        (delete)="onTaskItemDelete($event)"
+        (complete)="onTaskItemComplete($event)"></app-taskitem>
+    </mat-list>
+  </mat-card-content>
+  <a mat-button mat-raised-button routerLink="/add">Add</a>
+</mat-card>

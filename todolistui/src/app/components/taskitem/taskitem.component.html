@@ -1,0 +1,11 @@
+<mat-list-item >
+  <h3 matLine> {{task.title}} -----<i>{{task.status}}</i></h3>
+  <p matLine> {{task.description}}
+    </p>
+    <p>
+  <button *ngIf="task.status==='PENDING'" mat-raised-button mat-button (click)="onCompleted()">MarkCompleted</button> </p>
+  <p>
+  <button mat-raised-button mat-button (click)="onDelete()">Delete</button>
+</p>
+</mat-list-item>
+<mat-divider></mat-divider>
